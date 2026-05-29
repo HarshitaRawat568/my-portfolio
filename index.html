@@ -8,34 +8,14 @@
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   :root {
-    --bg: #0d0d0d;
-    --surface: #161616;
-    --card: #1c1c1c;
-    --accent: #c9f53b;
-    --accent2: #7df3c8;
-    --text: #f5f5f0;
-    --muted: #888880;
-    --border: rgba(255,255,255,0.07);
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'DM Sans', sans-serif;
+    --bg: #0d0d0d; --surface: #161616; --card: #1c1c1c;
+    --accent: #c9f53b; --accent2: #7df3c8; --text: #f5f5f0;
+    --muted: #888880; --border: rgba(255,255,255,0.07);
+    --font-display: 'Playfair Display', serif; --font-body: 'DM Sans', sans-serif;
   }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.7;
-    min-height: 100vh;
-  }
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.2rem 3rem;
-    background: rgba(13,13,13,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.7; min-height: 100vh; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 3rem; background: rgba(13,13,13,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
   .nav-logo { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 0.02em; color: var(--accent); }
   .nav-links { display: flex; gap: 2rem; }
   .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
@@ -53,14 +33,7 @@
   .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); margin-left: 1rem; }
   .btn-outline:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); }
   .hero-visual { display: flex; justify-content: center; align-items: center; }
-  .avatar-wrap {
-    width: 320px; height: 320px; border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%;
-    background: linear-gradient(135deg, #1e2a1a 0%, #0d1a10 100%);
-    border: 2px solid rgba(201,245,59,0.25);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-display); font-size: 7rem; color: var(--accent);
-    animation: morph 8s ease-in-out infinite;
-  }
+  .avatar-wrap { width: 320px; height: 320px; border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%; background: linear-gradient(135deg, #1e2a1a 0%, #0d1a10 100%); border: 2px solid rgba(201,245,59,0.25); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 7rem; color: var(--accent); animation: morph 8s ease-in-out infinite; }
   @keyframes morph {
     0%, 100% { border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%; }
     25% { border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%; }
@@ -82,9 +55,12 @@
   .project-card:hover::before { opacity: 1; }
   .project-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: rgba(201,245,59,0.1); padding: 4px 10px; border-radius: 100px; margin-bottom: 1rem; }
   .project-title { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.75rem; }
-  .project-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
-  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .project-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
   .tech-pill { font-size: 12px; color: var(--muted); background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 100px; padding: 3px 10px; }
+  .project-link { display: inline-block; margin-top: 0.5rem; margin-bottom: 0.75rem; color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 500; border: 1px solid rgba(201,245,59,0.3); padding: 4px 14px; border-radius: 100px; transition: all 0.2s; }
+  .project-link:hover { background: rgba(201,245,59,0.1); border-color: var(--accent); }
+  .coming-soon { display: inline-block; margin-top: 0.5rem; margin-bottom: 0.75rem; color: var(--muted); font-size: 13px; border: 1px solid var(--border); padding: 4px 14px; border-radius: 100px; }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
   .about-text p { color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 1rem; }
   .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
@@ -150,30 +126,39 @@
   <p class="section-label">What I've built</p>
   <h2 class="section-title">Projects</h2>
   <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-tag">HTML / CSS / JS</div>
-      <h3 class="project-title">Weather Dashboard</h3>
-      <p class="project-desc">A responsive weather app that fetches real-time data using a public API, showing temperature, humidity and forecasts with clean UI.</p>
-      <div class="project-tech"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">API</span></div>
-    </div>
-    <div class="project-card">
-      <div class="project-tag">React</div>
-      <h3 class="project-title">Task Manager App</h3>
-      <p class="project-desc">A productivity app built with React to manage daily tasks with features like add, delete, mark complete and filter by status.</p>
-      <div class="project-tech"><span class="tech-pill">React</span><span class="tech-pill">useState</span><span class="tech-pill">CSS Modules</span></div>
-    </div>
-    <div class="project-card">
-      <div class="project-tag">Clone Project</div>
-      <h3 class="project-title">Netflix UI Clone</h3>
-      <p class="project-desc">A pixel-perfect clone of Netflix's landing page focusing on layout, animations and responsive design across all screen sizes.</p>
-      <div class="project-tech"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">Flexbox</span><span class="tech-pill">Grid</span></div>
-    </div>
+
     <div class="project-card">
       <div class="project-tag">JavaScript</div>
       <h3 class="project-title">Quiz Application</h3>
+      <a href="https://harshitarawat568.github.io/quiz-app" target="_blank" class="project-link">🔗 Live Demo</a>
       <p class="project-desc">An interactive quiz app with timer, score tracking, multiple choice questions and result screen with performance analysis.</p>
       <div class="project-tech"><span class="tech-pill">JavaScript</span><span class="tech-pill">DOM</span><span class="tech-pill">LocalStorage</span></div>
     </div>
+
+    <div class="project-card">
+      <div class="project-tag">HTML / CSS / JS</div>
+      <h3 class="project-title">Task Manager App</h3>
+      <a href="https://harshitarawat568.github.io/task-manager" target="_blank" class="project-link">🔗 Live Demo</a>
+      <p class="project-desc">A productivity app to manage daily tasks with add, delete, complete, priority levels and filter by status. Data saved in LocalStorage.</p>
+      <div class="project-tech"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">LocalStorage</span></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tag">HTML / CSS / JS</div>
+      <h3 class="project-title">Weather Dashboard</h3>
+      <span class="coming-soon">🚧 Coming Soon</span>
+      <p class="project-desc">A responsive weather app that fetches real-time data using a public API, showing temperature, humidity and forecasts with clean UI.</p>
+      <div class="project-tech"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">API</span></div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-tag">Clone Project</div>
+      <h3 class="project-title">Netflix UI Clone</h3>
+      <span class="coming-soon">🚧 Coming Soon</span>
+      <p class="project-desc">A pixel-perfect clone of Netflix's landing page focusing on layout, animations and responsive design across all screen sizes.</p>
+      <div class="project-tech"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">Flexbox</span><span class="tech-pill">Grid</span></div>
+    </div>
+
   </div>
 </section>
 
@@ -187,7 +172,7 @@
       <p>Open to opportunities in Bangalore or remote roles where I can bring energy, curiosity and solid frontend skills.</p>
     </div>
     <div class="stats">
-      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Projects Built</div></div>
+      <div class="stat"><div class="stat-num">2+</div><div class="stat-label">Live Projects</div></div>
       <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Months Learning</div></div>
       <div class="stat"><div class="stat-num">4</div><div class="stat-label">Technologies</div></div>
       <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Passion to Grow</div></div>
@@ -202,8 +187,8 @@
     <p>I'm currently looking for frontend opportunities. Whether you have a question or just want to say hello, feel free to reach out!</p>
     <div class="contact-links">
       <a href="mailto:harshita@email.com" class="contact-link">📧 harshita@email.com</a>
+      <a href="https://github.com/HarshitaRawat568" target="_blank" class="contact-link">🐙 GitHub</a>
       <a href="#" class="contact-link">💼 LinkedIn</a>
-      <a href="#" class="contact-link">🐙 GitHub</a>
     </div>
   </div>
 </section>
