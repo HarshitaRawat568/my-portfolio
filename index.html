@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Harshita Rawat | Frontend Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --card: #1c1c1c;
+    --accent: #c9f53b;
+    --accent2: #7df3c8;
+    --text: #f5f5f0;
+    --muted: #888880;
+    --border: rgba(255,255,255,0.07);
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(13,13,13,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: var(--font-display); font-size: 1.2rem; letter-spacing: 0.02em; color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--text); }
+  section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
+  .hero { padding-top: 9rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; min-height: 100vh; }
+  .hero-label { font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .hero-name { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 1rem; }
+  .hero-name span { color: var(--accent); }
+  .hero-role { font-size: 1.1rem; color: var(--muted); margin-bottom: 2rem; }
+  .hero-desc { font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 400px; margin-bottom: 2.5rem; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 0.8rem 1.8rem; border-radius: 100px; font-size: 14px; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.25s; }
+  .btn-primary { background: var(--accent); color: #0d0d0d; border: none; }
+  .btn-primary:hover { background: #d8ff4a; transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); margin-left: 1rem; }
+  .btn-outline:hover { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); }
+  .hero-visual { display: flex; justify-content: center; align-items: center; }
+  .avatar-wrap {
+    width: 320px; height: 320px; border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%;
+    background: linear-gradient(135deg, #1e2a1a 0%, #0d1a10 100%);
+    border: 2px solid rgba(201,245,59,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 7rem; color: var(--accent);
+    animation: morph 8s ease-in-out infinite;
+  }
+  @keyframes morph {
+    0%, 100% { border-radius: 60% 40% 55% 45% / 45% 55% 45% 55%; }
+    25% { border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%; }
+    50% { border-radius: 55% 45% 60% 40% / 40% 60% 45% 55%; }
+    75% { border-radius: 40% 60% 45% 55% / 60% 40% 55% 45%; }
+  }
+  .section-label { font-size: 12px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 3rem; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; }
+  .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1rem; text-align: center; transition: all 0.25s; }
+  .skill-card:hover { border-color: rgba(201,245,59,0.35); transform: translateY(-4px); background: #222; }
+  .skill-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .skill-name { font-size: 13px; font-weight: 500; color: var(--text); }
+  .skill-level { font-size: 11px; color: var(--accent); margin-top: 4px; letter-spacing: 0.05em; }
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem; position: relative; overflow: hidden; transition: all 0.3s; }
+  .project-card:hover { border-color: rgba(201,245,59,0.3); transform: translateY(-4px); }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); opacity: 0; transition: opacity 0.3s; }
+  .project-card:hover::before { opacity: 1; }
+  .project-tag { display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: rgba(201,245,59,0.1); padding: 4px 10px; border-radius: 100px; margin-bottom: 1rem; }
+  .project-title { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.75rem; }
+  .project-desc { font-size: 14px; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+  .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tech-pill { font-size: 12px; color: var(--muted); background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 100px; padding: 3px 10px; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .about-text p { color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 1rem; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; }
+  .stat-num { font-family: var(--font-display); font-size: 2.5rem; color: var(--accent); }
+  .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .contact-wrap { text-align: center; max-width: 600px; margin: 0 auto; }
+  .contact-wrap p { color: var(--muted); margin-bottom: 2.5rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .contact-link { display: flex; align-items: center; gap: 8px; padding: 0.75rem 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 100px; color: var(--text); text-decoration: none; font-size: 14px; transition: all 0.25s; }
+  .contact-link:hover { border-color: rgba(201,245,59,0.4); background: rgba(201,245,59,0.05); }
+  footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .fade-up { animation: fadeUp 0.7s ease both; }
+  .delay-1 { animation-delay: 0.15s; }
+  .delay-2 { animation-delay: 0.3s; }
+  .delay-3 { animation-delay: 0.45s; }
+  .delay-4 { animation-delay: 0.6s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">HR.</div>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <p class="hero-label fade-up">Frontend Developer</p>
+    <h1 class="hero-name fade-up delay-1">Harshita<br/><span>Rawat.</span></h1>
+    <p class="hero-role fade-up delay-2">Building beautiful & functional web experiences</p>
+    <p class="hero-desc fade-up delay-3">I craft clean, responsive interfaces using HTML, CSS, JavaScript and React — focused on performance and great user experience.</p>
+    <div class="fade-up delay-4">
+      <a href="#projects" class="btn btn-primary">View My Work</a>
+      <a href="#contact" class="btn btn-outline">Let's Connect</a>
+    </div>
+  </div>
+  <div class="hero-visual fade-up delay-2">
+    <div class="avatar-wrap">HR</div>
+  </div>
+</section>
+
+<section id="skills">
+  <p class="section-label">What I know</p>
+  <h2 class="section-title">My Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="skill-icon">🌐</div><div class="skill-name">HTML5</div><div class="skill-level">Proficient</div></div>
+    <div class="skill-card"><div class="skill-icon">🎨</div><div class="skill-name">CSS3</div><div class="skill-level">Proficient</div></div>
+    <div class="skill-card"><div class="skill-icon">⚡</div><div class="skill-name">JavaScript</div><div class="skill-level">Intermediate</div></div>
+    <div class="skill-card"><div class="skill-icon">⚛️</div><div class="skill-name">React</div><div class="skill-level">Learning</div></div>
+    <div class="skill-card"><div class="skill-icon">📱</div><div class="skill-name">Responsive Design</div><div class="skill-level">Proficient</div></div>
+    <div class="skill-card"><div class="skill-icon">🐙</div><div class="skill-name">Git & GitHub</div><div class="skill-level">Intermediate</div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <p class="section-label">What I've built</p>
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-tag">HTML / CSS / JS</div>
+      <h3 class="project-title">Weather Dashboard</h3>
+      <p class="project-desc">A responsive weather app that fetches real-time data using a public API, showing temperature, humidity and forecasts with clean UI.</p>
+      <div class="project-tech"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">JavaScript</span><span class="tech-pill">API</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-tag">React</div>
+      <h3 class="project-title">Task Manager App</h3>
+      <p class="project-desc">A productivity app built with React to manage daily tasks with features like add, delete, mark complete and filter by status.</p>
+      <div class="project-tech"><span class="tech-pill">React</span><span class="tech-pill">useState</span><span class="tech-pill">CSS Modules</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-tag">Clone Project</div>
+      <h3 class="project-title">Netflix UI Clone</h3>
+      <p class="project-desc">A pixel-perfect clone of Netflix's landing page focusing on layout, animations and responsive design across all screen sizes.</p>
+      <div class="project-tech"><span class="tech-pill">HTML</span><span class="tech-pill">CSS</span><span class="tech-pill">Flexbox</span><span class="tech-pill">Grid</span></div>
+    </div>
+    <div class="project-card">
+      <div class="project-tag">JavaScript</div>
+      <h3 class="project-title">Quiz Application</h3>
+      <p class="project-desc">An interactive quiz app with timer, score tracking, multiple choice questions and result screen with performance analysis.</p>
+      <div class="project-tech"><span class="tech-pill">JavaScript</span><span class="tech-pill">DOM</span><span class="tech-pill">LocalStorage</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <p class="section-label">About me</p>
+      <h2 class="section-title" style="margin-bottom:1.5rem;">Passionate about pixels & code</h2>
+      <p>I'm a frontend developer with a strong foundation in HTML, CSS and JavaScript. I enjoy turning design ideas into clean, working interfaces that users love.</p>
+      <p>Currently growing my React skills and excited to contribute to real-world projects where I can keep learning and making an impact.</p>
+      <p>Open to opportunities in Bangalore or remote roles where I can bring energy, curiosity and solid frontend skills.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Projects Built</div></div>
+      <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Months Learning</div></div>
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Technologies</div></div>
+      <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Passion to Grow</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-wrap">
+    <p class="section-label" style="text-align:center;">Get in touch</p>
+    <h2 class="section-title">Let's Work Together</h2>
+    <p>I'm currently looking for frontend opportunities. Whether you have a question or just want to say hello, feel free to reach out!</p>
+    <div class="contact-links">
+      <a href="mailto:harshita@email.com" class="contact-link">📧 harshita@email.com</a>
+      <a href="#" class="contact-link">💼 LinkedIn</a>
+      <a href="#" class="contact-link">🐙 GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Designed & built by Harshita Rawat &nbsp;·&nbsp; 2025</p>
+</footer>
+
+</body>
+</html>
